@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import './App.css'
+import Header from "./components/Header/Header.jsx";
+import Footer from "./components/Footer/Footer.jsx";
+import Homepage from "./pages/Homepage/Homepage.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <div>
+      <Header />
+      <Homepage />
+      <Footer />
+    </div>
   )
 }
 
