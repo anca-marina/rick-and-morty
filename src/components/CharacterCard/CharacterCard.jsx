@@ -4,9 +4,9 @@ import './CharacterCard.css';
 const CharacterCard = ({character}) => {
     return (
         <div className="character-card">
-            <img src={character.image}/>
-            <p>{character.name}</p>
-            <a href="#">See Details</a>
+            <img src={character?.image}/>
+            <p>{character?.name}</p>
+            <a href={`/details/${character?.id}`}>See Details</a>
         </div>
     );
 };
