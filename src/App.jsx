@@ -7,21 +7,30 @@ import About from "./pages/About/About.jsx";
 import Episodes from "./pages/Episodes/Episodes.jsx";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import CharacterDetails from "./pages/CharacterDetails/CharacterDetails.jsx";
+import ThemeContextProvider from "./contexts/ThemeContext.jsx";
+import Favorites from "./pages/Favorites/Favorites.jsx";
+import FavoritesContextProvider from "./contexts/FavoritesContext.jsx";
+
 
 function App() {
 
   return (
     <BrowserRouter>
-        <Header />
+        <ThemeContextProvider>
+            <FavoritesContextProvider>
+                <Header />
 
-        <Routes>
-            <Route path='/' element={<Homepage />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/details/:characterId' element={<CharacterDetails />} />
-            <Route path='/episodes' element={<Episodes />} />
-        </Routes>
+                <Routes>
+                    <Route path='/' element={<Homepage />} />
+                    <Route path='/about' element={<About />} />
+                    <Route path='/favorites' element={<Favorites />} />
+                    <Route path='/details/:characterId' element={<CharacterDetails />} />
+                    <Route path='/episodes' element={<Episodes />} />
+                </Routes>
 
-        <Footer />
+                <Footer />
+            </FavoritesContextProvider>
+        </ThemeContextProvider>
     </BrowserRouter>
   )
 }

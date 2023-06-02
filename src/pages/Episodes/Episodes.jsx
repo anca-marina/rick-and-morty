@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import "./Episodes.css";
 import axios from "axios";
 import CharacterCard from "../../components/CharacterCard/CharacterCard.jsx";
+import {ThemeContext} from "../../contexts/ThemeContext.jsx";
 
 const Episodes = () => {
+    // use context for Global state
+    // Note: this is {} not []
+    const {darkMode, setDarkMode} = useContext(ThemeContext);
+
     //Create state for the numbers
     const [options, setOptions] = React.useState([])
 
@@ -77,7 +82,8 @@ const Episodes = () => {
 
 
     return (
-        <div className="episode-container">
+        //episode-container
+        <div className={darkMode?"episodes-container episodes-container-dark":"episodes-container"}>
             <div>
                 <label>Select an episode</label>
                 <select id="select-episode" onChange={handleSelectChange}>

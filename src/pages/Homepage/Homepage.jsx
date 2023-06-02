@@ -1,10 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './Homepage.css'
 import axios from "axios";
 import CharacterCard from "../../components/CharacterCard/CharacterCard.jsx";
 import Search from "../../components/Search/Search.jsx";
+import {ThemeContext} from "../../contexts/ThemeContext.jsx";
 
 function Homepage() {
+
+    // use context for Global state
+    // Note: this is {} not []
+    const {darkMode, setDarkMode} = useContext(ThemeContext);
+
     // create state to hold character data
     const [character, setCharacters] = useState([]);
     // show characters when page loads
@@ -24,7 +30,7 @@ function Homepage() {
         }, [] // empty array means run once when the page loads
     )
     return (
-        <div className="home-container">
+        <div className={darkMode?"home-container home-dark":"home-container"}>
             <Search setCharacters={setCharacters} />
             <h1>Main Characters</h1>
             <div className="characters-container">

@@ -4,7 +4,7 @@
     display: flex;
 }
 
-.episodes-dark{
+.episodes-container-dark{
     background-color: black;
     color:white;
 }
